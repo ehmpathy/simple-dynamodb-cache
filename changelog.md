@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.1...v1.0.2) (2023-08-07)
+
+
+### Bug Fixes
+
+* **deploy:** change to deploy under ehmpathy scope since exists package with close name ([938a0b9](https://github.com/ehmpathy/simple-dynamodb-cache/commit/938a0b9d731b319e887a6ca583073bbb72bf6633))
+
 ## [1.0.1](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.0...v1.0.1) (2023-08-07)
 
 
