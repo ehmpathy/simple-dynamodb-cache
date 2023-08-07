@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0 (2023-08-07)
+
+
+### Features
+
+* **init:** initialize based on simple-dynamodb-cache ([d58e974](https://github.com/ehmpathy/simple-dynamodb-cache/commit/d58e974e92f284ee95c5237eee7633fe857cf061))
+
+
+### Bug Fixes
+
+* **practs:** use latest best practices and resolve audit ([f4221d4](https://github.com/ehmpathy/simple-dynamodb-cache/commit/f4221d478871e8de217fe2e88b651837ac9e819b))
+
 ## [1.0.1](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.0...v1.0.1) (2023-07-16)
 
 
