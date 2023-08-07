@@ -14,15 +14,26 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: set node version
+      - name: set node-version
         uses: actions/setup-node@v3
         with:
           registry-url: 'https://registry.npmjs.org/'
           node-version-file: '.nvmrc'
           cache: 'npm'
 
-      - name: install
-        run: npm ci
+      - name: node-modules cache get
+        uses: actions/cache/restore@v3
+        id: cache
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: node-modules cache miss install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts --prefer-offline --no-audit
+
+      - name: build
+        run: npm run build
 
       - name: publish
         run: npm publish

@@ -27,7 +27,7 @@ export const isRecordExpired = ({
   expiresAtMse,
 }: {
   expiresAtMse: number | null;
-}) => {
+}): boolean => {
   // if expiresAtMse = null, then it never expires
   if (expiresAtMse === null) return false;
 
