@@ -1,5 +1,5 @@
 {
-  "name": "simple-dynamodb-cache",
+  "name": "@ehmpathy/simple-dynamodb-cache",
   "author": "ehmpathy",
   "description": "A simple dynamodb cache with time based expiration policies",
   "version": "1.0.1",
