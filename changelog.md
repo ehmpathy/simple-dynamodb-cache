@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.2...v1.0.3) (2023-08-07)
+
+
+### Bug Fixes
+
+* **publish:** publish without provenance ([76ddf87](https://github.com/ehmpathy/simple-dynamodb-cache/commit/76ddf87a2cba7c6aa5f190961bf2266d226f7a4f))
+
 ## [1.0.2](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.1...v1.0.2) (2023-08-07)
 
 
