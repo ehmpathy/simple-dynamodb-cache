@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.0...v1.0.1) (2023-08-07)
+
+
+### Bug Fixes
+
+* **cicd:** ensure publish.test has correct creds ([38f02f7](https://github.com/ehmpathy/simple-dynamodb-cache/commit/38f02f71f2659c465c99c81e6d40358560020923))
+
 ## 1.0.0 (2023-08-07)
 
 
