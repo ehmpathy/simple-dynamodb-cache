@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.3...v1.0.4) (2023-10-18)
+
+
+### Bug Fixes
+
+* **ttl:** ensure neverexpire value is set in milliseconds, not seconds ([35e5c93](https://github.com/ehmpathy/simple-dynamodb-cache/commit/35e5c931a1bf67e56964a94bc30b31de268edc71))
+
 ## [1.0.3](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.2...v1.0.3) (2023-08-07)
 
 
