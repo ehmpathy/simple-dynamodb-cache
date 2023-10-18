@@ -83,7 +83,7 @@ export const createCache = ({
     const expiresAtMse =
       secondsUntilExpiration && secondsUntilExpiration < Infinity
         ? getMseNow() + secondsUntilExpiration * 1000
-        : getMseNow() + 10 * SECONDS_IN_A_YEAR; // aws wont enforce ttl if timestamp is 5+ years in the future; use 10 for good measure; https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/howitworks-ttl.html
+        : getMseNow() + 10 * SECONDS_IN_A_YEAR * 1000; // aws wont enforce ttl if timestamp is 5+ years in the future; use 10 for good measure; https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/howitworks-ttl.html
     await simpleDynamodbClient.put({
       tableName: dynamodbTableName,
       logDebug,
