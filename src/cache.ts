@@ -1,7 +1,5 @@
-import { UniDuration, toMilliseconds } from '@ehmpathy/uni-time';
-import { LogMethod, simpleDynamodbClient } from 'simple-dynamodb-client';
-
-const SECONDS_IN_A_YEAR = 365 * 24 * 60 * 60;
+import { toMilliseconds, type UniDuration } from '@ehmpathy/uni-time';
+import { type LogMethod, simpleDynamodbClient } from 'simple-dynamodb-client';
 
 export interface SimpleDynamodbCache {
   /**
