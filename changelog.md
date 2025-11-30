@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.7](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.6...v1.0.7) (2025-11-30)
+
+
+### Bug Fixes
+
+* **type:** bind cache shape to with-simple-cache ([#10](https://github.com/ehmpathy/simple-dynamodb-cache/issues/10)) ([b9ca996](https://github.com/ehmpathy/simple-dynamodb-cache/commit/b9ca996bb4c11b7220da386f122282a565736b43))
+
 ## [1.0.6](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.5...v1.0.6) (2025-11-30)
 
 
