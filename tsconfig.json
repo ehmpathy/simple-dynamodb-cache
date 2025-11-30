@@ -10,12 +10,13 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "outDir": "dist",
-    "target": "es6",
-    "lib": [
-      "dom",
-    ],
+    "target": "es2020",
+    "incremental": true
   },
-  "extends": "@tsconfig/node-lts-strictest/tsconfig.json",
+  "extends": [
+    "@tsconfig/strictest/tsconfig.json",
+    "@tsconfig/node20/tsconfig.json"
+  ],
   "include": [
     "**/*.ts"
   ],

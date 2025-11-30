@@ -1,6 +1,6 @@
 import { createCache } from './cache';
 
-export const sleep = (ms: number): Promise<void> =>
+const sleep = (ms: number): Promise<void> =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
 const dynamodbTableName = 'simple-dynamodb-cache-test-table';
