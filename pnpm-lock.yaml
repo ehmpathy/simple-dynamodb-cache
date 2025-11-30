@@ -90,6 +90,9 @@ importers:
       typescript:
         specifier: 5.4.5
         version: 5.4.5
+      with-simple-cache:
+        specifier: 0.15.1
+        version: 0.15.1
 
 packages:
 

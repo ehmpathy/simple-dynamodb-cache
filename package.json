@@ -81,7 +81,8 @@
     "jest-environment-jsdom": "29.6.1",
     "prettier": "2.8.1",
     "tsx": "4.20.6",
-    "typescript": "5.4.5"
+    "typescript": "5.4.5",
+    "with-simple-cache": "0.15.1"
   },
   "config": {
     "commitizen": {
