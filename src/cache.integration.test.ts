@@ -24,7 +24,7 @@ describe('cache', () => {
   it('should respect the default expiration for the cache', async () => {
     const { set, get } = createCache({
       dynamodbTableName,
-      defaultSecondsUntilExpiration: 10, // we're gonna use this cache to keep track of the popcorn in the microwave - we should check more regularly since it changes quickly!
+      expiration: { seconds: 10 }, // we're gonna use this cache to keep track of the popcorn in the microwave - we should check more regularly since it changes quickly!
     });
     await set('how popped is the popcorn?', 'not popped');
 
@@ -44,7 +44,7 @@ describe('cache', () => {
   });
   it('should respect the item level expiration for the cache', async () => {
     const { set, get } = createCache({ dynamodbTableName });
-    await set('ice cream state', 'solid', { secondsUntilExpiration: 5 }); // ice cream changes quickly in the heat! lets keep a quick eye on this
+    await set('ice cream state', 'solid', { expiration: { seconds: 5 } }); // ice cream changes quickly in the heat! lets keep a quick eye on this
 
     // prove that we recorded the value and its accessible immediately after setting
     const iceCreamState = await get('ice cream state');
@@ -60,13 +60,13 @@ describe('cache', () => {
     const iceCreamStateAfter5Sec = await get('ice cream state');
     expect(iceCreamStateAfter5Sec).toEqual(undefined); // no longer defined, since the item level seconds until expiration was 5
   });
-  it('should respect infinity as never expire', async () => {
+  it('should respect null as never expire', async () => {
     const { set, get } = createCache({
       dynamodbTableName,
-      defaultSecondsUntilExpiration: 1,
+      expiration: { seconds: 1 },
     });
     await set('can it be done?', 'that is the way', {
-      secondsUntilExpiration: Infinity,
+      expiration: null,
     });
     await sleep(3000); // exceed the default ttl
     const answer = await get('can it be done?');

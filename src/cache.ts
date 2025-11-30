@@ -1,3 +1,4 @@
+import { UniDuration, toMilliseconds } from '@ehmpathy/uni-time';
 import { LogMethod, simpleDynamodbClient } from 'simple-dynamodb-client';
 
 const SECONDS_IN_A_YEAR = 365 * 24 * 60 * 60;
@@ -14,7 +15,7 @@ export interface SimpleDynamodbCache {
   set: (
     key: string,
     value: string | undefined,
-    options?: { secondsUntilExpiration?: number },
+    options?: { expiration?: UniDuration | null },
   ) => Promise<void>;
 }
 
@@ -37,7 +38,7 @@ export const isRecordExpired = ({
 
 export const createCache = ({
   dynamodbTableName,
-  defaultSecondsUntilExpiration = 5 * 60,
+  expiration: defaultExpiration = { minutes: 5 },
   logDebug = () => {},
 }: {
   /**
@@ -54,7 +55,7 @@ export const createCache = ({
    * note
    * - use `null` for "never expire"
    */
-  defaultSecondsUntilExpiration?: number | null;
+  expiration?: UniDuration | null;
 
   /**
    * specifies an optional logger to use to log dynamodb requests
@@ -66,8 +67,8 @@ export const createCache = ({
     key: string,
     value: string | undefined,
     {
-      secondsUntilExpiration = defaultSecondsUntilExpiration,
-    }: { secondsUntilExpiration?: number | null } = {},
+      expiration = defaultExpiration,
+    }: { expiration?: UniDuration | null } = {},
   ) => {
     // handle cache invalidation
     if (value === undefined)
@@ -81,9 +82,13 @@ export const createCache = ({
 
     // handle set
     const expiresAtMse =
-      secondsUntilExpiration && secondsUntilExpiration < Infinity
-        ? getMseNow() + secondsUntilExpiration * 1000
-        : getMseNow() + 10 * SECONDS_IN_A_YEAR * 1000; // aws wont enforce ttl if timestamp is 5+ years in the future; use 10 for good measure; https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/howitworks-ttl.html
+      getMseNow() +
+      (expiration
+        ? toMilliseconds(expiration)
+        : // "never expires" if null
+          toMilliseconds({
+            days: 365 * 10, // aws wont enforce ttl if timestamp is 5+ years in the future; use 10 for good measure; https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/howitworks-ttl.html
+          }));
     await simpleDynamodbClient.put({
       tableName: dynamodbTableName,
       logDebug,

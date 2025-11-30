@@ -49,6 +49,7 @@
     "postinstall": "[ -d .git ] && npx husky install || exit 0"
   },
   "dependencies": {
+    "@ehmpathy/uni-time": "1.9.1",
     "simple-dynamodb-client": "0.10.0"
   },
   "devDependencies": {
