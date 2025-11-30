@@ -1,21 +1,8 @@
 import { toMilliseconds, type UniDuration } from '@ehmpathy/uni-time';
 import { type LogMethod, simpleDynamodbClient } from 'simple-dynamodb-client';
+import type { SimpleAsyncCache } from 'with-simple-cache';
 
-export interface SimpleDynamodbCache {
-  /**
-   * get a value from cache by key
-   */
-  get: (key: string) => Promise<string | undefined>;
-
-  /**
-   * set a value to cache for key
-   */
-  set: (
-    key: string,
-    value: string | undefined,
-    options?: { expiration?: UniDuration | null },
-  ) => Promise<void>;
-}
+export type SimpleDynamodbCache = SimpleAsyncCache<string>;
 
 const getMseNow = () => new Date().getTime();
 
