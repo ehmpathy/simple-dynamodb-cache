@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.7...v1.0.8) (2025-11-30)
+
+
+### Bug Fixes
+
+* **pkg:** recover infinity = forever behavior ([#12](https://github.com/ehmpathy/simple-dynamodb-cache/issues/12)) ([6b532f0](https://github.com/ehmpathy/simple-dynamodb-cache/commit/6b532f032621888d584d7067555e8d92ff60aa0c))
+
 ## [1.0.7](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.6...v1.0.7) (2025-11-30)
 
 
