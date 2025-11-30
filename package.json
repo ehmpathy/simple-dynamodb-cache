@@ -2,7 +2,7 @@
   "name": "simple-dynamodb-cache",
   "author": "ehmpathy",
   "description": "A simple dynamodb cache with time based expiration policies",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "repository": "ehmpathy/simple-dynamodb-cache",
   "homepage": "https://github.com/ehmpathy/simple-dynamodb-cache",
   "keywords": [
