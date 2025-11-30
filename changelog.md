@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.5](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.4...v1.0.5) (2025-11-30)
+
+
+### Bug Fixes
+
+* **practs:** bump to latest best ([#6](https://github.com/ehmpathy/simple-dynamodb-cache/issues/6)) ([3d17bbc](https://github.com/ehmpathy/simple-dynamodb-cache/commit/3d17bbc412ea34e959f8d3e72bcfdfcb0fb1cd65))
+* **shape:** bump to latest with-simple-cache shape ([c5aab14](https://github.com/ehmpathy/simple-dynamodb-cache/commit/c5aab14683088d9985e0cd497ec53efcec78bd9f))
+
 ## [1.0.4](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.3...v1.0.4) (2023-10-18)
 
 
