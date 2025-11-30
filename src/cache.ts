@@ -66,14 +66,17 @@ export const createCache = ({
       });
 
     // handle set
-    const expiresAtMse =
-      getMseNow() +
-      (expiration
-        ? toMilliseconds(expiration)
-        : // "never expires" if null
-          toMilliseconds({
-            days: 365 * 10, // aws wont enforce ttl if timestamp is 5+ years in the future; use 10 for good measure; https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/howitworks-ttl.html
-          }));
+    const expirationMillisRaw = expiration
+      ? toMilliseconds(expiration)
+      : Infinity;
+    const expirationMillisSafe = Math.min(
+      // cap the value at a max of 10years
+      toMilliseconds({ days: 365 * 10 }), // aws wont enforce ttl if timestamp is 5+ years in the future; use 10 for good measure; https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/howitworks-ttl.html
+
+      // as otherwise, dynamodb fails on values like "Infinity"
+      expirationMillisRaw,
+    );
+    const expiresAtMse = getMseNow() + expirationMillisSafe;
     await simpleDynamodbClient.put({
       tableName: dynamodbTableName,
       logDebug,

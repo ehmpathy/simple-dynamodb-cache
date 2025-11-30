@@ -72,4 +72,16 @@ describe('cache', () => {
     const answer = await get('can it be done?');
     expect(answer).toEqual('that is the way');
   });
+  it('should respect Infinity as never expire', async () => {
+    const { set, get } = createCache({
+      dynamodbTableName,
+      expiration: { seconds: 1 },
+    });
+    await set('can it be done?', 'that is the way', {
+      expiration: { seconds: Infinity },
+    });
+    await sleep(3000); // exceed the default ttl
+    const answer = await get('can it be done?');
+    expect(answer).toEqual('that is the way');
+  });
 });
