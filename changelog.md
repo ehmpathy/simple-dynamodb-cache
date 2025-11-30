@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.5...v1.0.6) (2025-11-30)
+
+
+### Bug Fixes
+
+* **scope:** recover public scope ([#8](https://github.com/ehmpathy/simple-dynamodb-cache/issues/8)) ([c723605](https://github.com/ehmpathy/simple-dynamodb-cache/commit/c7236053084a419dd553f544b66b9e29c7e2325f))
+
 ## [1.0.5](https://github.com/ehmpathy/simple-dynamodb-cache/compare/v1.0.4...v1.0.5) (2025-11-30)
 
 
